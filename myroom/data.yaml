@@ -1,0 +1,29 @@
+train: train/images
+val: valid/images
+test: test/images
+
+names: 
+  0: backpack
+  1: bed
+  2: blanket
+  3: bottle
+  4: box
+  5: cabinet-merged
+  6: chair
+  7: curtain
+  8: door-stuff
+  9: floor-other-merged
+  10: keyboard
+  11: laptop
+  12: mouse
+  13: pan
+  14: pillow
+  15: plate
+  16: refrigerator
+  17: remote
+  18: spoon
+  19: stove-merged
+  20: table
+  21: table-merged
+  22: towel
+  23: wall

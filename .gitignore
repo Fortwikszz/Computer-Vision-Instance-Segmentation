@@ -1,0 +1,59 @@
+# ==============================================================================
+# Archives / Compressed Files
+# ==============================================================================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# ==============================================================================
+# Model Weights & Checkpoints (too large for Git / GitHub 100 MB limit)
+# ==============================================================================
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.ckpt
+*.onnx
+**/weights/
+**/last/
+
+# ==============================================================================
+# Unused / Duplicate / Generated Folders
+# ==============================================================================
+result1/
+runs/
+dataset_224/
+dataset_512/
+dataset_640/
+inference_outputs/
+panoptic-indoor-segmentation.v1-forked-v5.yolov8-obb/
+
+# Old 224px pilot outputs (keep only outputs/metrics_segm.csv)
+outputs/*
+!outputs/metrics_segm.csv
+
+# Large raw COCO RLE prediction dumps (reproducible from notebooks)
+**/preds/
+
+# ==============================================================================
+# Unused Draft Notebooks & Legacy Files
+# ==============================================================================
+train_instance_segmentation2.ipynb
+instance_seg_dataset.py
+yolo11n-40epochs-augmented.txt
+
+# ==============================================================================
+# Python / Jupyter / OS Junk
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+Thumbs.db

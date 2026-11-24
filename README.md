@@ -67,7 +67,7 @@ Test set 40 foto ini melampaui syarat minimal 10 foto kondisi sulit melalui berb
 
 Ke-40 foto dianotasi secara manual di Roboflow (`myroom/`, diekspor pada 24 November 2026 dalam format poligon/OBB YOLOv8, menghasilkan **326 instance poligon** pada **24 nama kelas**; tersisa `306` mask valid non-degenerat pada `512px` dan `308` pada `640px` setelah proses *letterboxing*).
 
-> **[Perlu Dilengkapi Sebelum Ekspor PDF Akhir]:** Sisipkan tangkapan layar (*screenshot*) ruang kerja anotasi Roboflow di sini sebagai bukti visual proses anotasi poligon mandiri.
+![Bukti Proses Anotasi Poligon Mandiri di Roboflow](report_assets/annoting.png)
 
 **Detail Rekayasa Penting — Penyelarasan ID Kelas & Orientasi EXIF:**
 1. **Pemetaan ulang nama kelas (*class-name remapping*):** Roboflow mengekspor `myroom/data.yaml` dengan indeks ulang `0..23`, sedangkan seluruh 6 model terlatih mengeluarkan indeks 74 kelas (`0..73`) dari `panoptic-indoor-segmentation`. Di dalam [`inference_evaluation.ipynb`](inference_evaluation.ipynb), setiap poligon *ground truth* dipetakan otomatis berdasarkan **nama kelas** ke taksonomi latih 74 kelas, dengan `CLASS_ALIAS_MAP = {"table": "table-merged"}` yang menyatukan 22 instance `table` ke `table-merged` (kelas 54), menghasilkan **23 kelas evaluasi aktif**.
@@ -346,7 +346,6 @@ Seluruh log training mentah, *checkpoint*, JSON prediksi, dan tabel evaluasi ter
 | [`content/outputs_augmentation/mask2former_aug_2/history.json`](content/outputs_augmentation/mask2former_aug_2/history.json) | Log lengkap 50 epoch `train_loss`, `val_loss`, `lr`, `lr_backbone` untuk `Aug 2` |
 | [`content/outputs_augmentation/metrics_segm.csv`](content/outputs_augmentation/metrics_segm.csv) | Metrik mask COCO `pycocotools` Bagian 2 pada `val` asli (`640px`) |
 | [`outputs/metrics_segm.csv`](outputs/metrics_segm.csv) | Metrik eksperimen awal `224px` (GPU lokal RTX 4050) |
-| [`content/outputs/preds/`](content/outputs/preds/) & [`content/outputs_augmentation/preds/`](content/outputs_augmentation/preds/) | File JSON prediksi mentah format COCO RLE untuk seluruh 6 model |
 
 ### 5.2 Catatan Perangkat Keras GPU & Waktu Eksekusi
 
